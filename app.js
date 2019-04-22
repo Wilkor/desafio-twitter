@@ -23,9 +23,18 @@ require('dotenv')
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/node-passport-social', { useMongoClient: true })
-  .then(() =>  console.log('connection successful'))
-  .catch((err) => console.error(err));
+//mongoose.connect('mongodb://localhost/node-passport-social', { useMongoClient: true })
+ // .then(() =>  console.log('connection successful'))
+  //.catch((err) => console.error(err));
+
+  const MongoClient = require('mongodb').MongoClient;
+const uri= "mongodb+srv://wilkor:ju@210322@cluster0-mm5tk.mongodb.net/node-passport-social?retryWrites=true";
+const client2 = new MongoClient(uri, { useNewUrlParser: true });
+client2.connect(err => {
+  const collection = client2.db("node-passport-social").collection("User");
+  // perform actions on the collection object
+  client2.close();
+}).catch((err) => console.error(err));;
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended:true}))
