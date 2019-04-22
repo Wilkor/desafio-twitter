@@ -14,6 +14,7 @@
     "express-session": "^1.15.5",
     "find-or-create": "^1.1.0",
     "hbs": "^4.0.4",
+    "mongodb-stitch-browser-sdk": "^4.3.2",
     "mongoose": "^4.11.9",
     "morgan": "~1.8.1",
     "passport": "^0.4.0",
